@@ -21,6 +21,7 @@ spark 的shell 主要用来进行数据探索。它会自动调动分布式集�
 ```bash
 export PYSPARK_DRIVER_PYTHON=ipython3 # 启动pyspark的命令，可以替换为python3.6 python2.7
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook" # 启动pyspark时候的参数，可以加 --config
+export PYSPARK_PYTHON="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" # 用来指定使用Python解释器
 ```
 
 ## 2.3 Spark核心概念简介

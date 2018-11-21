@@ -78,6 +78,42 @@ class SearchFunctions(object):
 ## 3.5 常见的转化操作和行动操作
 ### 3.5.1 基本RDD
 1. 针对各个元素的转化操作
-最常见的是map和filter
+最常见的是map和filter,配合lambda 使用的方法类似 python自带的map和filter函数。 还有一种flatMap可以完成1个输入多个输出的操作。比如一个句子提出多个关键词，不过要注意得到数组会被展平。
+
+2. 伪集合操作
+- `distinct` : 生成唯一元素的新RDD，会混洗所以速度比较慢。
+- `union` : 两个RDD中元素的并集，不会进行去重。
+- `intersection` : 两个RDD中元素的交集，会进行去重，性能比`distinct`更差。
+- `subtract` : 类似集合减法，也需要混洗。
+- `cartesian` : 笛卡尔积，生成A X B
+- `sample` : 采样，两个参数为是否替换和采样率。 数量不固定，似乎每个样本独立采样。
+
+3. 行动操作
+最常见是`reduce`和`fold`，他们返回的结果总是和RDD中的元素类型相同，`fold`可以加上初始值，初始值需要是不会单元元素，比如加就是0，乘就是1，不会随着lambda表达式多次运算而改变，不然结果可能不稳定。`aggregate`则可以返回和RDD中元素不一样的数据类型。
+
+- `collect` : 返回所有元素
+- `count` : 返回元素个数
+- `countByValue` : 各个元素次数
+- `take` : 返回 n 个元素
+- `top` : 返回最前面的n 个元素
+- `takeOrdered`: 按某种顺序返回最前面 n 个元素
+- `takeSample`: 返回任意
+- `reduce`: 并行整合
+- `fold`: 和reduce类似需要初值
+- `aggregate`: 聚合
+- `foreach`: 对每个元素使用给定函数
 
 ### 3.5.2 在不同RDD类型间转换
+
+JAVA 和 SCALA 中一些特定类型的RDD可以使用特定类型的操作。比如数值RDD可以求`mean`和`variance`，键值对RDD可以使用`join`
+
+## 3.6 持久化
+使用`persist(level)`可以持久化RDD减少重复计算次数。等级有：
+
+- MEMORY_ONLY : 使用空间大，CPU少，内存中
+- MEMORY_ONLY_SER :空间小，CPU高，内存中
+- MEMORY_AND_DISK : 空间大，CPU中，部分内存，部分磁盘
+- MEMORY_AND_DISK_SER : 空间少，CPU高，内存部分，磁盘部分
+- DISK_ONLY : 空间少，CPU高，磁盘中
+
+## 3.7 总结

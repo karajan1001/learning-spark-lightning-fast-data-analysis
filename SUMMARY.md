@@ -3,3 +3,6 @@
 * [Initial page](README.md)
 ## BOOK  
 * [Chapter 1 SPARK 数据分析导论 ](BOOK/chapter1.md)
+* [Chapter 2 Spark 下载与入门 ](BOOK/chapter2.md)
+* [Chapter 3 RDD 编程 ](BOOK/chapter3.md)
+* [Chapter 4 键值对操作 ](BOOK/chapter4.md)

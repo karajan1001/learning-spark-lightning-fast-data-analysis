@@ -9,3 +9,4 @@
 * [Chapter 5 数据的读取与保存 ](BOOK/chapter5.md)
 * [Chapter 6 Spark进阶编程 ](BOOK/chapter6.md)
 * [Chapter 7 在集群上运行Spark ](BOOK/chapter7.md)
+* [Chapter 8 Spark调优与调试 ](BOOK/chapter8.md)

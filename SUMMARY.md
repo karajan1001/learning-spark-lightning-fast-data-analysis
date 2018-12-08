@@ -6,3 +6,5 @@
 * [Chapter 2 Spark 下载与入门 ](BOOK/chapter2.md)
 * [Chapter 3 RDD 编程 ](BOOK/chapter3.md)
 * [Chapter 4 键值对操作 ](BOOK/chapter4.md)
+* [Chapter 5 数据的读取与保存 ](BOOK/chapter5.md)
+* [Chapter 6 Spark进阶编程 ](BOOK/chapter6.md)

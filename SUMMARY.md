@@ -10,3 +10,4 @@
 * [Chapter 6 Spark进阶编程 ](BOOK/chapter6.md)
 * [Chapter 7 在集群上运行Spark ](BOOK/chapter7.md)
 * [Chapter 8 Spark调优与调试 ](BOOK/chapter8.md)
+* [Chapter 8 Spark SQL ](BOOK/chapter9.md)

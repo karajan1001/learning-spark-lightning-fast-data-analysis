@@ -28,8 +28,10 @@ export PYSPARK_PYTHON="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framewor
 
 每个Spark应用都有一个驱动器程序来发起集群上的各种并行操作。在交互式模式中，这个驱动器程序就是spark shell本身。驱动器通过`sc(SparkContext)`来访问spark，这个对象代表对计算集群的一个连接。有了`SparkContext`就能用它来创建RDD。
 
+![spark-context](https://jaceklaskowski.gitbooks.io/mastering-apache-spark/diagrams/sparkcontext-services.png)
+
 ## 2.4 独立应用
-除了交互式，Spark也可以在独立应用中连接使用。与交互式的唯一区别是，需要自行初始化 `SparkContext`。 对于JAVA和SCALA需要体检spark-core相关的maven依赖。 而对于Python需要用spark自带的`bin/spark-submit`脚本运行。
+除了交互式，Spark也可以在独立应用中连接使用。与交互式的唯一区别是，需要自行初始化 `SparkContext`。 对于JAVA和SCALA需要添加spark-core相关的maven依赖。 而对于Python需要用spark自带的`bin/spark-submit`脚本运行。连接Spark的方法各个语言有所不同。
 
 ### 2.4.1 初始化SparkContext
 创建`SparkContext`只需要两个参数：

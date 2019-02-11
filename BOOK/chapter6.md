@@ -55,7 +55,7 @@ countryContactCOunts.saveAsTextFile(outputDir + "/countries.txt")
 可以通过<font color='green'>pipe()</font>方法使用任意语言实现Spark任务中部分逻辑。
 
 ## 6.6 数值RDD操作
-对包含数值数据的RDD提供了一些描述性统计操作。有**count**,**sum**,**mean**,**max**,**min**,**variance**,**sampleVariance**,**stdev**,sampleStdev**
+对包含数值数据的RDD提供了一些描述性统计操作。有**count**,**sum**,**mean**,**max**,**min**,**variance**,**sampleVariance**,**stdev**,**sampleStdev**
 
 ## 6.7 总结
 

@@ -1,6 +1,8 @@
 # 第八章 Spark调优与调试
 
 ## 8.1 使用sparkconf 配置
+需要对spark性能调优，就需要修改Spark应用的运行时配置。spark中主要的配置机制就是修改sparkconf。每个sparkcontext需要一个对一个的sparkconfig。
+
 1.  可以通过通过这个变量为spark任务进行配置。
 ```scala
 val conf = new SparkConf()
@@ -52,19 +54,24 @@ $ bin/spark-submit \
 |spark.eventLog.enabled | false | 是否开启实践日志机制|
 |spark.eventLog.dir | `file:///tmp/spark-events` | 日志机制路径 |
 
-> `SPARK_LOCAL_DIRS`环境变量在`conf/spark-env.sh`中，可以指定Spark用来混系数据时的本地存储路径。
+几乎所有的spark配置都发生在SparkConf配置过程中除了`SPARK_LOCAL_DIRS`，这个值在不同的物理机上可能不同，所以需要单独处理。
+> `SPARK_LOCAL_DIRS`环境变量在`conf/spark-env.sh`中，可以指定Spark用来混洗数据时的本地存储路径。
 
 ## 8.2 Spark执行的组成部分： 作业,任务和步骤
 > 对于 spark 的 rdd 可以通过`rdd.toDebugString`查看其谱系。
 
 - 作业: 特定行动操作生成的步骤集合（计算图）
 - 步骤：一个步骤对应计计算图中的一个或者多个RDD启动很多个任务。
-- 任务： 在不同的数据分区上同样的操作
+- 任务：在不同的数据分区上同样的操作。
 
 ## 8.3 查找信息
 ### 8.3.1 Spark 网页用户界面
 在驱动器程序机器的`4040`端口上。
 ### 8.3.2 驱动器进程和执行器进程的日志
+
+- 如果是Spark独立模式下，日志存放在spark下的work/目录中。
+- 而mesos模式下则是在节点的work/中，可以通过主节点访问。
+- yarn模式则使用YARN自带的日志收集工具。
 
 ## 8.4 关键性能考量
 ### 8.4.1 并行度
